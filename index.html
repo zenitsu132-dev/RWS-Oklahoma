@@ -66,10 +66,7 @@
       box-shadow: 0 4px 16px rgba(0,0,0,0.3);
       overflow: hidden;
     }
-    .logo-circle svg {
-      width: 60px;
-      height: 60px;
-    }
+    .logo-circle svg { width: 60px; height: 60px; }
     .header-text { flex: 1; }
     .header-text h1 {
       font-family: 'Barlow Condensed', sans-serif;
@@ -182,11 +179,7 @@
       text-align: right;
       flex-shrink: 0;
     }
-    .wx-temp {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
+    .wx-temp { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
 
     /* ── FORECASTER DISCUSSION ── */
     .discussion-card {
@@ -208,16 +201,10 @@
       text-transform: uppercase;
       margin-bottom: 5px;
     }
-    .discussion-section p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-    }
+    .discussion-section p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; }
 
     /* ── SIDEBAR ── */
     .sidebar { display: flex; flex-direction: column; gap: 20px; }
-
-    .sidebar-block { }
     .sidebar-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -228,17 +215,8 @@
 
     /* Current conditions */
     .conditions-body { padding: 16px; }
-    .cond-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-    .cond-item {
-      background: var(--bg);
-      border-radius: 8px;
-      padding: 10px 12px;
-      text-align: center;
-    }
+    .cond-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .cond-item { background: var(--bg); border-radius: 8px; padding: 10px 12px; text-align: center; }
     .cond-label {
       font-size: 0.68rem;
       font-weight: 600;
@@ -254,7 +232,6 @@
       color: var(--ok-sky);
     }
 
-    /* Station selector */
     .station-select {
       width: 100%;
       padding: 8px 12px;
@@ -269,16 +246,8 @@
     }
 
     /* Radar */
-    .radar-wrap {
-      background: #0a1a2e;
-      border-radius: 0 0 10px 10px;
-      overflow: hidden;
-    }
-    .radar-tabs {
-      display: flex;
-      background: #0d2236;
-      border-bottom: 1px solid #1a3a5c;
-    }
+    .radar-wrap { background: #0a1a2e; border-radius: 0 0 10px 10px; overflow: hidden; }
+    .radar-tabs { display: flex; background: #0d2236; border-bottom: 1px solid #1a3a5c; }
     .rtab {
       flex: 1;
       padding: 7px 4px;
@@ -329,11 +298,7 @@
     @keyframes spin { to { transform: rotate(360deg); } }
 
     /* ── FOOTER ── */
-    footer {
-      background: var(--ok-sky);
-      color: rgba(255,255,255,0.75);
-      margin-top: 20px;
-    }
+    footer { background: var(--ok-sky); color: rgba(255,255,255,0.75); margin-top: 20px; }
     .footer-inner {
       max-width: 1100px;
       margin: 0 auto;
@@ -344,25 +309,9 @@
       flex-wrap: wrap;
       gap: 20px;
     }
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .footer-rws {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: white;
-      line-height: 1;
-    }
-    .footer-rws span {
-      display: block;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      color: rgba(255,255,255,0.6);
-    }
+    .footer-brand { display: flex; align-items: center; gap: 14px; }
+    .footer-rws { font-family: 'Barlow Condensed', sans-serif; font-size: 2.2rem; font-weight: 800; color: white; line-height: 1; }
+    .footer-rws span { display: block; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; color: rgba(255,255,255,0.6); }
     .footer-discord a {
       display: inline-flex;
       align-items: center;
@@ -383,7 +332,6 @@
     .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; }
     .footer-links a:hover { color: white; }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       .main { grid-template-columns: 1fr; }
       .header-text h1 { font-size: 2rem; }
@@ -396,10 +344,8 @@
 <header>
   <div class="header-inner">
     <div class="logo-circle">
-      <!-- Oklahoma state outline SVG logo -->
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         <circle cx="50" cy="50" r="46" fill="#8B0000" stroke="#F5A800" stroke-width="3"/>
-        <!-- OK state shape simplified -->
         <path d="M15,45 L20,38 L75,38 L80,32 L85,32 L85,42 L80,42 L80,55 L75,55 L75,62 L20,62 L15,55 Z" fill="white" opacity="0.9"/>
         <text x="50" y="54" text-anchor="middle" font-family="Barlow Condensed,sans-serif" font-weight="800" font-size="14" fill="#8B0000">OKLA</text>
         <circle cx="72" cy="25" r="5" fill="#F5A800"/>
@@ -422,24 +368,18 @@
 <div id="alert-banner"></div>
 
 <main class="main">
-  <!-- LEFT COLUMN -->
   <div class="left-col">
-
     <div class="section-title">📅 &nbsp;7-DAY FORECAST — OKLAHOMA</div>
     <div class="forecast-card" id="forecast-container">
       <div class="loading"><div class="spinner"></div>LOADING FORECAST...</div>
     </div>
-
     <div class="section-title">🌩️ &nbsp;TODAY'S FORECASTERS DISCUSSION</div>
     <div class="discussion-card" id="discussion-container">
       <div class="loading"><div class="spinner"></div>LOADING DISCUSSION...</div>
     </div>
-
   </div>
 
-  <!-- RIGHT SIDEBAR -->
   <div class="sidebar">
-
     <div class="sidebar-block">
       <div class="section-title">📍 &nbsp;CURRENT CONDITIONS</div>
       <div class="sidebar-card">
@@ -477,13 +417,12 @@
             <img id="radar-img" src="" alt="Oklahoma Radar" />
             <div class="radar-label">
               <span id="radar-updated">Loading...</span>
-              &nbsp;·&nbsp; NWS RIDGE2
+              &nbsp;·&nbsp; IEM RADAR
             </div>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </main>
 
@@ -494,42 +433,29 @@
     </div>
     <div class="footer-discord">
       <a href="#" id="discord-link">
-        <!-- Discord icon -->
         <svg width="22" height="22" viewBox="0 0 71 55" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M60.1 4.9A58.6 58.6 0 0 0 45.6.9a40.7 40.7 0 0 0-1.8 3.6 54.2 54.2 0 0 0-16.2 0A40.4 40.4 0 0 0 25.8.9 58.5 58.5 0 0 0 11.2 4.9C1.6 19.1-1 33 .3 46.6a59 59 0 0 0 18 9.1 44.5 44.5 0 0 0 3.8-6.2 38.3 38.3 0 0 1-6-2.9l1.5-1.1a42.1 42.1 0 0 0 36 0l1.5 1.1a38.3 38.3 0 0 1-6 2.9 44.5 44.5 0 0 0 3.8 6.2 58.8 58.8 0 0 0 18-9.1C72.4 30.8 68.7 17 60.1 4.9ZM23.7 38.3c-3.5 0-6.4-3.2-6.4-7.1s2.8-7.1 6.4-7.1c3.5 0 6.4 3.2 6.3 7.1 0 3.9-2.8 7.1-6.3 7.1Zm23.7 0c-3.5 0-6.4-3.2-6.4-7.1s2.8-7.1 6.4-7.1c3.5 0 6.4 3.2 6.3 7.1 0 3.9-2.8 7.1-6.3 7.1Z"/></svg>
         GET THE LATEST FORECASTS<br/><strong>JOIN OUR DISCORD</strong>
       </a>
     </div>
     <div class="footer-links">
-      <a href="/cdn-cgi/l/email-protection#add7c8c3dad59a9f9d9bedcac0ccc4c183cec2c0">📧 <span class="__cf_email__" data-cfemail="a2d8c7ccd5da95909294e2c5cfc3cbce8cc1cdcf">[email&#160;protected]</span></a><br/>
+      <a href="mailto:zenwx7206@gmail.com">📧 zenwx7206@gmail.com</a><br/>
       <a href="https://twitter.com/zenwx_official" target="_blank">🐦 @zenwx_official</a><br/>
       <a href="https://youtube.com/@ZenWX_Official" target="_blank">▶️ @ZenWX_Official</a>
     </div>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// ─────────────────────────────────────────────
-// CONFIG — update these for your GitHub repo
-// ─────────────────────────────────────────────
+<script>
 const CONFIG = {
-  // Your GitHub Pages raw URL for fallback discussion JSON
-  // e.g. "https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/discussion.json"
   githubDiscussionUrl: "discussion.json",
-
-  // NWS Office for Oklahoma (Norman)
   nwsOffice: "OUN",
-
-  // NWS gridpoint for central Oklahoma (Norman area covers statewide)
   nwsGridX: 61,
   nwsGridY: 89,
-
-  // Discord invite link
   discordUrl: "https://discord.gg/t39rkQXm8",
 };
 
 document.getElementById('discord-link').href = CONFIG.discordUrl;
 
-// Update clock
 function updateTime() {
   const now = new Date();
   document.getElementById('current-time').textContent =
@@ -538,9 +464,6 @@ function updateTime() {
 updateTime();
 setInterval(updateTime, 30000);
 
-// ─────────────────────────────────────────────
-// NWS ICONS MAP
-// ─────────────────────────────────────────────
 function nwsIconUrl(shortForecast) {
   const f = shortForecast.toLowerCase();
   if (f.includes('thunder')) return 'https://api.weather.gov/icons/land/day/tsra?size=medium';
@@ -555,13 +478,10 @@ function nwsIconUrl(shortForecast) {
   return 'https://api.weather.gov/icons/land/day/sct?size=medium';
 }
 
-// ─────────────────────────────────────────────
-// LOAD 7-DAY FORECAST
-// ─────────────────────────────────────────────
 async function loadForecast() {
   try {
     const res = await fetch(`https://api.weather.gov/gridpoints/${CONFIG.nwsOffice}/${CONFIG.nwsGridX},${CONFIG.nwsGridY}/forecast`, {
-      headers: { 'User-Agent': 'OklahomaRWS/1.0 (okrws@example.com)' }
+      headers: { 'User-Agent': 'OklahomaRWS/1.0 (zenwx7206@gmail.com)' }
     });
     if (!res.ok) throw new Error('NWS forecast failed');
     const data = await res.json();
@@ -593,9 +513,7 @@ function renderForecast(periods) {
           <img src="${iconUrl}" alt="${p.shortForecast}" onerror="this.src='https://api.weather.gov/icons/land/day/sct?size=medium'"/>
           <span>${p.shortForecast.toUpperCase().slice(0,12)}</span>
         </div>
-        <div class="wx-desc">
-          ${p.detailedForecast}
-        </div>
+        <div class="wx-desc">${p.detailedForecast}</div>
         <div style="text-align:right; flex-shrink:0;">
           <div class="wx-day">${abbr}</div>
           <div class="wx-temp">${tempLabel}</div>
@@ -604,15 +522,10 @@ function renderForecast(periods) {
   }).join('');
 }
 
-// ─────────────────────────────────────────────
-// LOAD FORECASTERS DISCUSSION
-// Primary: NWS text product  |  Fallback: GitHub JSON
-// ─────────────────────────────────────────────
 async function loadDiscussion() {
-  // Try NWS first
   try {
     const res = await fetch(`https://api.weather.gov/products/types/AFD/locations/${CONFIG.nwsOffice}`, {
-      headers: { 'User-Agent': 'OklahomaRWS/1.0 (okrws@example.com)' }
+      headers: { 'User-Agent': 'OklahomaRWS/1.0 (zenwx7206@gmail.com)' }
     });
     if (!res.ok) throw new Error();
     const list = await res.json();
@@ -625,7 +538,6 @@ async function loadDiscussion() {
     return;
   } catch (_) {}
 
-  // Fallback: GitHub-hosted JSON
   try {
     const res = await fetch(CONFIG.githubDiscussionUrl);
     if (!res.ok) throw new Error();
@@ -650,34 +562,16 @@ function renderDiscussion(rawText, source, githubData) {
     return;
   }
 
-  // Parse NWS AFD text
   if (rawText) {
-    // Extract main sections
-    const sections = [];
-    const patterns = [
-      { key: 'SHORT TERM', label: 'Short Term' },
-      { key: 'LONG TERM',  label: 'Long Term' },
-      { key: 'AVIATION',   label: 'Aviation' },
-      { key: 'FIRE WEATHER', label: 'Fire Weather' },
-      { key: 'PRELIMINARY', label: 'Preliminary' },
-    ];
-
-    // Remove header boilerplate
     let text = rawText.replace(/^[\s\S]*?&&\s*/m, '').replace(/&&[\s\S]*$/m, '');
-    // Split on .SECTION...
-    const sectionRegex = /\.([A-Z][A-Z /]+)\.\.\./g;
-    let parts = text.split(sectionRegex);
-
+    let parts = text.split(/\.([A-Z][A-Z /]+)\.\.\./g);
     const parsed = [];
     for (let i = 1; i < parts.length; i += 2) {
       parsed.push({ label: parts[i].trim(), text: parts[i+1]?.trim().replace(/\n+/g,' ').slice(0,800) || '' });
     }
-
     if (parsed.length === 0) {
-      // fallback: show raw trimmed
       parsed.push({ label: 'FORECAST DISCUSSION', text: text.replace(/\n+/g,' ').slice(0,1200) });
     }
-
     container.innerHTML = parsed.map(s => `
       <div class="discussion-section">
         <div class="disc-label">${s.label}</div>
@@ -686,9 +580,6 @@ function renderDiscussion(rawText, source, githubData) {
   }
 }
 
-// ─────────────────────────────────────────────
-// LOAD CURRENT CONDITIONS (NWS Observations)
-// ─────────────────────────────────────────────
 async function loadConditions() {
   const station = document.getElementById('station-select').value;
   const ids = ['c-temp','c-dew','c-wind','c-humid','c-pres','c-vis'];
@@ -697,20 +588,20 @@ async function loadConditions() {
 
   try {
     const res = await fetch(`https://api.weather.gov/stations/${station}/observations/latest`, {
-      headers: { 'User-Agent': 'OklahomaRWS/1.0 (okrws@example.com)' }
+      headers: { 'User-Agent': 'OklahomaRWS/1.0 (zenwx7206@gmail.com)' }
     });
     if (!res.ok) throw new Error();
     const obs = (await res.json()).properties;
 
-    const toF = c => c != null ? Math.round(c * 9/5 + 32) + '°F' : '--';
+    const toF  = c   => c   != null ? Math.round(c * 9/5 + 32) + '°F' : '--';
     const toMph = mps => mps != null ? Math.round(mps * 2.237) + ' mph' : '--';
-    const toMb = pa => pa != null ? (pa / 100).toFixed(0) + ' mb' : '--';
-    const toMi = m => m != null ? (m / 1609.34).toFixed(1) + ' mi' : '--';
+    const toMb  = pa  => pa  != null ? (pa / 100).toFixed(0) + ' mb'   : '--';
+    const toMi  = m   => m   != null ? (m / 1609.34).toFixed(1) + ' mi': '--';
 
-    document.getElementById('c-temp').textContent = toF(obs.temperature?.value);
-    document.getElementById('c-dew').textContent  = toF(obs.dewpoint?.value);
+    document.getElementById('c-temp').textContent  = toF(obs.temperature?.value);
+    document.getElementById('c-dew').textContent   = toF(obs.dewpoint?.value);
     const windDir = obs.windDirection?.value != null ? degToDir(obs.windDirection.value) + ' ' : '';
-    document.getElementById('c-wind').textContent = windDir + toMph(obs.windSpeed?.value);
+    document.getElementById('c-wind').textContent  = windDir + toMph(obs.windSpeed?.value);
     document.getElementById('c-humid').textContent = obs.relativeHumidity?.value != null ? Math.round(obs.relativeHumidity.value) + '%' : '--';
     document.getElementById('c-pres').textContent  = toMb(obs.seaLevelPressure?.value);
     document.getElementById('c-vis').textContent   = toMi(obs.visibility?.value);
@@ -726,9 +617,6 @@ function degToDir(deg) {
   return dirs[Math.round(deg / 22.5) % 16];
 }
 
-// ─────────────────────────────────────────────
-// ALERTS
-// ─────────────────────────────────────────────
 async function checkAlerts() {
   try {
     const res = await fetch('https://api.weather.gov/alerts/active?area=OK', {
@@ -746,15 +634,13 @@ async function checkAlerts() {
 }
 
 // ─────────────────────────────────────────────
+// RADAR — Iowa Environmental Mesonet (IEM)
+// No CSP issues, works on GitHub Pages
 // ─────────────────────────────────────────────
-// RADAR — NWS RIDGE2 static images (no CSP issues)
-// Station KTLX = Twin Lakes (OKC), covers all of OK
-// ─────────────────────────────────────────────
-const RADAR_STATION = 'KTLX';
 const RADAR_PRODUCTS = {
-  base:      `https://radar.weather.gov/ridge/standard/${RADAR_STATION}_0.png`,
-  composite: `https://radar.weather.gov/ridge/standard/CONUS_BREF_0.gif`,
-  vel:       `https://radar.weather.gov/ridge/standard/${RADAR_STATION}_1.png`,
+  base:      'https://mesonet.agron.iastate.edu/GIS/radmap.php?layers=nexrad&sector=state&state=ok&ts=',
+  composite: 'https://mesonet.agron.iastate.edu/GIS/radmap.php?layers=nexrad&sector=conus&ts=',
+  vel:       'https://mesonet.agron.iastate.edu/GIS/radmap.php?layers=nexrad&sector=state&state=ok&prod=N0U&ts=',
 };
 
 let radarProduct = 'base';
@@ -769,8 +655,7 @@ function setRadar(product) {
 
 function refreshRadar() {
   const img = document.getElementById('radar-img');
-  const ts = Date.now();
-  img.src = RADAR_PRODUCTS[radarProduct] + '?' + ts;
+  img.src = RADAR_PRODUCTS[radarProduct] + Date.now();
   img.onload = () => {
     document.getElementById('radar-updated').textContent =
       new Date().toLocaleTimeString('en-US', { hour:'2-digit', minute:'2-digit', timeZone:'America/Chicago' }) + ' CDT';
@@ -780,12 +665,10 @@ function refreshRadar() {
   };
 }
 
-// Wire up tab buttons
 document.querySelectorAll('.rtab').forEach(btn => {
   btn.addEventListener('click', () => setRadar(btn.dataset.radar));
 });
 
-// Auto-refresh radar every 5 min
 refreshRadar();
 setInterval(refreshRadar, 5 * 60 * 1000);
 
@@ -799,4 +682,5 @@ loadConditions();
 
 </body>
 </html>
+
 
