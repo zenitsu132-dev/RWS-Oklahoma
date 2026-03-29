@@ -500,14 +500,14 @@
       </a>
     </div>
     <div class="footer-links">
-      <a href="mailto:okrws@example.com">📧 okrws@example.com</a><br/>
-      <a href="https://twitter.com/" target="_blank">🐦 @OKRWSWeather</a><br/>
-      <a href="https://youtube.com/" target="_blank">▶️ @OKRWSWeather</a>
+      <a href="/cdn-cgi/l/email-protection#add7c8c3dad59a9f9d9bedcac0ccc4c183cec2c0">📧 <span class="__cf_email__" data-cfemail="a2d8c7ccd5da95909294e2c5cfc3cbce8cc1cdcf">[email&#160;protected]</span></a><br/>
+      <a href="https://twitter.com/zenwx_official" target="_blank">🐦 @zenwx_official</a><br/>
+      <a href="https://youtube.com/@ZenWX_Official" target="_blank">▶️ @ZenWX_Official</a>
     </div>
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ─────────────────────────────────────────────
 // CONFIG — update these for your GitHub repo
 // ─────────────────────────────────────────────
@@ -524,7 +524,7 @@ const CONFIG = {
   nwsGridY: 89,
 
   // Discord invite link
-  discordUrl: "https://discord.gg/YOURINVITE",
+  discordUrl: "https://discord.gg/t39rkQXm8",
 };
 
 document.getElementById('discord-link').href = CONFIG.discordUrl;
@@ -778,21 +778,4 @@ function refreshRadar() {
       new Date().toLocaleTimeString('en-US', { hour:'2-digit', minute:'2-digit', timeZone:'America/Chicago' }) + ' CDT';
   };
   img.onerror = () => {
-    document.getElementById('radar-updated').textContent = 'Unavailable';
-  };
-}
-
-// Auto-refresh radar every 5 min
-refreshRadar();
-setInterval(refreshRadar, 5 * 60 * 1000);
-
-// ─────────────────────────────────────────────
-// INIT
-// ─────────────────────────────────────────────
-loadForecast();
-loadDiscussion();
-loadConditions();
-</script>
-
-</body>
-</html>
+    document.getElementById('radar-updated').textContent =
