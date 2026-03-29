@@ -469,9 +469,9 @@
       <div class="sidebar-card">
         <div class="radar-wrap">
           <div class="radar-tabs">
-            <button class="rtab active" onclick="setRadar('base','this')">BASE</button>
-            <button class="rtab" onclick="setRadar('composite','this')">COMPOSITE</button>
-            <button class="rtab" onclick="setRadar('vel','this')">VELOCITY</button>
+            <button class="rtab active" data-radar="base">BASE</button>
+            <button class="rtab" data-radar="composite">COMPOSITE</button>
+            <button class="rtab" data-radar="vel">VELOCITY</button>
           </div>
           <div class="radar-img-wrap">
             <img id="radar-img" src="" alt="Oklahoma Radar" />
@@ -746,6 +746,7 @@ async function checkAlerts() {
 }
 
 // ─────────────────────────────────────────────
+// ─────────────────────────────────────────────
 // RADAR — NWS RIDGE2 static images (no CSP issues)
 // Station KTLX = Twin Lakes (OKC), covers all of OK
 // ─────────────────────────────────────────────
@@ -757,14 +758,11 @@ const RADAR_PRODUCTS = {
 };
 
 let radarProduct = 'base';
-let radarTimer = null;
 
-function setRadar(product, btnEl) {
+function setRadar(product) {
   radarProduct = product;
-  document.querySelectorAll('.rtab').forEach(b => b.classList.remove('active'));
-  // find button by text match
   document.querySelectorAll('.rtab').forEach(b => {
-    if (b.getAttribute('onclick').includes(`'${product}'`)) b.classList.add('active');
+    b.classList.toggle('active', b.dataset.radar === product);
   });
   refreshRadar();
 }
@@ -778,4 +776,27 @@ function refreshRadar() {
       new Date().toLocaleTimeString('en-US', { hour:'2-digit', minute:'2-digit', timeZone:'America/Chicago' }) + ' CDT';
   };
   img.onerror = () => {
-    document.getElementById('radar-updated').textContent =
+    document.getElementById('radar-updated').textContent = 'Unavailable';
+  };
+}
+
+// Wire up tab buttons
+document.querySelectorAll('.rtab').forEach(btn => {
+  btn.addEventListener('click', () => setRadar(btn.dataset.radar));
+});
+
+// Auto-refresh radar every 5 min
+refreshRadar();
+setInterval(refreshRadar, 5 * 60 * 1000);
+
+// ─────────────────────────────────────────────
+// INIT
+// ─────────────────────────────────────────────
+loadForecast();
+loadDiscussion();
+loadConditions();
+</script>
+
+</body>
+</html>
+
