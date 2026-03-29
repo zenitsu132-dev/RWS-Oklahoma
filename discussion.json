@@ -1,0 +1,21 @@
+{
+  "updated": "2025-03-28T12:00:00Z",
+  "sections": [
+    {
+      "label": "Short Term (Today through Tomorrow)",
+      "text": "High pressure building across the southern plains will bring dry and pleasant conditions to Oklahoma through the weekend. Temperatures will run near seasonal normals with highs in the mid 60s across central Oklahoma. Overnight lows will drop into the lower 40s."
+    },
+    {
+      "label": "Long Term (Sunday onward)",
+      "text": "A potent southern stream shortwave is expected to lift northeast across the region by early next week, bringing increasing cloud cover and the potential for showers and thunderstorms. Severe weather parameters will need to be monitored closely as moisture surges northward ahead of the system. Highs will surge into the 70s ahead of the front."
+    },
+    {
+      "label": "Fire Weather",
+      "text": "No critical fire weather concerns at this time. Relative humidity values will remain adequate and wind speeds will stay below advisory thresholds through the weekend."
+    },
+    {
+      "label": "Aviation",
+      "text": "VFR conditions expected at all Oklahoma terminals through Sunday. Ceilings and visibilities will remain well above minimums. Winds will be light and variable."
+    }
+  ]
+}
