@@ -783,16 +783,25 @@ function collectOverrides() {
 // ─────────────────────────────────────────────
 async function saveAll() {
   const statusEl = document.getElementById('global-save-status');
+  setStatus(statusEl, 'saving', '⏳ SYNCING WITH GITHUB...');
+
+  // Always fetch the latest SHAs before writing to avoid 409 conflicts
+  const [freshDisc, freshOv] = await Promise.all([
+    readJsonFile('discussion.json'),
+    readJsonFile('overrides.json'),
+  ]);
+  fileSHAs['discussion.json'] = freshDisc.sha;
+  fileSHAs['overrides.json']  = freshOv.sha;
+
   setStatus(statusEl, 'saving', '⏳ COMMITTING TO GITHUB...');
 
-  const disc     = collectDiscussion();
+  const disc      = collectDiscussion();
   const overrides = collectOverrides();
-
-  const ts = new Date().toLocaleString('en-US', { timeZone:'America/Chicago' });
+  const ts        = new Date().toLocaleString('en-US', { timeZone: 'America/Chicago' });
 
   const [r1, r2] = await Promise.all([
-    ghPut('discussion.json', disc, `Update forecaster discussion — ${ts}`, fileSHAs['discussion.json']),
-    ghPut('overrides.json', overrides, `Update site overrides — ${ts}`, fileSHAs['overrides.json']),
+    ghPut('discussion.json', disc,      `Update forecaster discussion — ${ts}`, fileSHAs['discussion.json']),
+    ghPut('overrides.json',  overrides, `Update site overrides — ${ts}`,        fileSHAs['overrides.json']),
   ]);
 
   if (r1?.ok && r2?.ok) {
@@ -802,9 +811,9 @@ async function saveAll() {
     isDirty = false;
     setTimeout(() => setStatus(statusEl, '', ''), 6000);
   } else {
-    const failed = !r1?.ok ? r1 : r2;
-    const errMsg = failed?.message || 'Unknown error';
-    const errCode = failed?.status || '?';
+    const failed  = !r1?.ok ? r1 : r2;
+    const errMsg  = failed?.message || 'Unknown error';
+    const errCode = failed?.status  || '?';
     setStatus(statusEl, 'error', `❌ Error ${errCode}: ${errMsg}`);
   }
 }
