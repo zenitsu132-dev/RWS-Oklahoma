@@ -760,3 +760,81 @@ document.addEventListener('DOMContentLoaded', () => {
 setInterval(loadRainViewerFrames, 10 * 60 * 1000);
 
 // ─────────────────────────────────────── 
+// ─────────────────────────────────────────────
+// OVERRIDES — read overrides.json from GitHub repo
+// ─────────────────────────────────────────────
+async function loadOverrides() {
+  try {
+    const res = await fetch('overrides.json?_=' + Date.now());
+    if (!res.ok) return;
+    const ov = await res.json();
+
+    // Alert banner
+    if (ov.alertBanner?.enabled && ov.alertBanner?.text) {
+      const banner = document.getElementById('alert-banner');
+      banner.textContent = ov.alertBanner.text;
+      banner.style.display = 'block';
+    }
+
+    // Tagline override
+    if (ov.tagline?.enabled && ov.tagline?.text) {
+      document.querySelector('.header-text h2').textContent = ov.tagline.text;
+    }
+
+    // Forecast override
+    if (ov.forecast?.enabled && ov.forecast?.periods?.length) {
+      window._forecastOverride = ov.forecast.periods;
+    }
+  } catch(_) {}
+}
+
+const ICON_MAP = {
+  sunny:        'https://api.weather.gov/icons/land/day/skc?size=medium',
+  mostly_sunny: 'https://api.weather.gov/icons/land/day/few?size=medium',
+  partly_cloudy:'https://api.weather.gov/icons/land/day/sct?size=medium',
+  mostly_cloudy:'https://api.weather.gov/icons/land/day/bkn?size=medium',
+  cloudy:       'https://api.weather.gov/icons/land/day/ovc?size=medium',
+  rain:         'https://api.weather.gov/icons/land/day/rain?size=medium',
+  showers:      'https://api.weather.gov/icons/land/day/rain_showers?size=medium',
+  thunderstorm: 'https://api.weather.gov/icons/land/day/tsra?size=medium',
+  snow:         'https://api.weather.gov/icons/land/day/snow?size=medium',
+  wind:         'https://api.weather.gov/icons/land/day/wind_few?size=medium',
+  fog:          'https://api.weather.gov/icons/land/day/fog?size=medium',
+};
+
+function renderOverrideForecast(periods) {
+  const container = document.getElementById('forecast-container');
+  container.innerHTML = periods.map(p => `
+    <div class="forecast-row">
+      <div class="wx-icon">
+        <img src="${ICON_MAP[p.icon] || ICON_MAP.sunny}" alt="${p.icon}" onerror="this.src='${ICON_MAP.sunny}'"/>
+        <span>${(p.icon||'').replace('_',' ').toUpperCase().slice(0,12)}</span>
+      </div>
+      <div class="wx-desc">${p.description || ''}</div>
+      <div style="text-align:right; flex-shrink:0;">
+        <div class="wx-day">${p.day || ''}</div>
+        <div class="wx-temp">${p.high ? p.high + '°F' : ''}</div>
+      </div>
+    </div>`).join('');
+}
+
+// ─────────────────────────────────────────────
+// INIT
+// ─────────────────────────────────────────────
+async function init() {
+  await loadOverrides();
+  if (window._forecastOverride) {
+    renderOverrideForecast(window._forecastOverride);
+    checkAlerts();
+  } else {
+    loadForecast();
+  }
+  loadDiscussion();
+  loadConditions();
+}
+
+init();
+</script>
+
+</body>
+</html>
