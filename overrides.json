@@ -1,0 +1,14 @@
+{
+  "alertBanner": {
+    "enabled": false,
+    "text": ""
+  },
+  "tagline": {
+    "enabled": false,
+    "text": ""
+  },
+  "forecast": {
+    "enabled": false,
+    "periods": []
+  }
+}
