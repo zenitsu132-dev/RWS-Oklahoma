@@ -781,17 +781,30 @@ function collectOverrides() {
 // ─────────────────────────────────────────────
 // SAVE ALL
 // ─────────────────────────────────────────────
+async function getFileSha(path) {
+  const r = await fetch(`https://api.github.com/repos/${GH.user}/${GH.repo}/contents/${path}?_=${Date.now()}`, {
+    headers: {
+      Authorization: `Bearer ${GH.token}`,
+      Accept: 'application/vnd.github+json',
+      'Cache-Control': 'no-cache',
+    }
+  });
+  if (!r.ok) return null;
+  const data = await r.json();
+  return data.sha || null;
+}
+
 async function saveAll() {
   const statusEl = document.getElementById('global-save-status');
   setStatus(statusEl, 'saving', '⏳ SYNCING WITH GITHUB...');
 
-  // Always fetch the latest SHAs before writing to avoid 409 conflicts
-  const [freshDisc, freshOv] = await Promise.all([
-    readJsonFile('discussion.json'),
-    readJsonFile('overrides.json'),
+  // Fetch fresh SHAs directly — bypass any caching
+  const [sha1, sha2] = await Promise.all([
+    getFileSha('discussion.json'),
+    getFileSha('overrides.json'),
   ]);
-  fileSHAs['discussion.json'] = freshDisc.sha;
-  fileSHAs['overrides.json']  = freshOv.sha;
+
+  console.log('Fresh SHAs:', sha1, sha2);
 
   setStatus(statusEl, 'saving', '⏳ COMMITTING TO GITHUB...');
 
@@ -800,13 +813,11 @@ async function saveAll() {
   const ts        = new Date().toLocaleString('en-US', { timeZone: 'America/Chicago' });
 
   const [r1, r2] = await Promise.all([
-    ghPut('discussion.json', disc,      `Update forecaster discussion — ${ts}`, fileSHAs['discussion.json']),
-    ghPut('overrides.json',  overrides, `Update site overrides — ${ts}`,        fileSHAs['overrides.json']),
+    ghPut('discussion.json', disc,      `Update forecaster discussion — ${ts}`, sha1),
+    ghPut('overrides.json',  overrides, `Update site overrides — ${ts}`,        sha2),
   ]);
 
   if (r1?.ok && r2?.ok) {
-    fileSHAs['discussion.json'] = r1.content?.sha;
-    fileSHAs['overrides.json']  = r2.content?.sha;
     setStatus(statusEl, 'success', '✅ PUBLISHED! Live in ~30 seconds.');
     isDirty = false;
     setTimeout(() => setStatus(statusEl, '', ''), 6000);
