@@ -598,7 +598,12 @@ async function ghPut(path, content, message, sha) {
     },
     body: JSON.stringify(body),
   });
-  return r.ok ? r.json() : null;
+  if (!r.ok) {
+    const err = await r.json().catch(() => ({}));
+    console.error(`ghPut failed for ${path}:`, r.status, err.message || err);
+    return { ok: false, status: r.status, message: err.message || 'Unknown error' };
+  }
+  return { ok: true, ...(await r.json()) };
 }
 
 async function readJsonFile(filename) {
@@ -790,15 +795,17 @@ async function saveAll() {
     ghPut('overrides.json', overrides, `Update site overrides — ${ts}`, fileSHAs['overrides.json']),
   ]);
 
-  if (r1 && r2) {
-    // Update SHAs so subsequent saves work without reload
+  if (r1?.ok && r2?.ok) {
     fileSHAs['discussion.json'] = r1.content?.sha;
     fileSHAs['overrides.json']  = r2.content?.sha;
     setStatus(statusEl, 'success', '✅ PUBLISHED! Live in ~30 seconds.');
     isDirty = false;
     setTimeout(() => setStatus(statusEl, '', ''), 6000);
   } else {
-    setStatus(statusEl, 'error', '❌ Save failed. Check token permissions.');
+    const failed = !r1?.ok ? r1 : r2;
+    const errMsg = failed?.message || 'Unknown error';
+    const errCode = failed?.status || '?';
+    setStatus(statusEl, 'error', `❌ Error ${errCode}: ${errMsg}`);
   }
 }
 
