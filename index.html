@@ -653,7 +653,7 @@
       </a>
     </div>
     <div class="footer-links">
-      <a href="mailto:zenwx7206@gmail.com">📧 zenwx7206@gmail.com</a><br/>
+      <a href="/cdn-cgi/l/email-protection#acd6c9c2dbd49b9e9c9aeccbc1cdc5c082cfc3c1">📧 <span class="__cf_email__" data-cfemail="ed9788839a95dadfdddbad8a808c8481c38e8280">[email&#160;protected]</span></a><br/>
       <a href="https://twitter.com/zenwx_official" target="_blank">🐦 @zenwx_official</a><br/>
       <a href="https://youtube.com/@ZenWX_Official" target="_blank">▶️ @ZenWX_Official</a>
     </div>
@@ -731,7 +731,7 @@
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ─────────────────────────────────────────────
 // CONFIG
 // ─────────────────────────────────────────────
@@ -743,7 +743,7 @@ const CONFIG = {
   discordUrl: "https://discord.gg/t39rkQXm8",
 
   // ← CHANGE THIS to your passcode
-  passcode: "RWSOklahoma",
+  passcode: "Oklahoma",
 
   // ← Your GitHub details for saving discussion.json
   githubUser: "zenitsu132-dev",
@@ -891,39 +891,42 @@ async function panelSave() {
 
   const ts = new Date().toLocaleString('en-US', { timeZone: 'America/Chicago' });
 
-  try {
-    const [ok1, ok2] = await Promise.all([
-      ghSave('discussion.json', discussion, `Update discussion — ${ts}`),
-      ghSave('overrides.json',  overrides,  `Update overrides — ${ts}`),
-    ]);
-    if (ok1 && ok2) {
-      setPanelStatus('success', '✅ PUBLISHED! Live in ~30 seconds.');
-      setTimeout(() => setPanelStatus('', ''), 6000);
-      // Update alert banner on the live page immediately
-      applyOverrides(overrides);
-    } else {
-      setPanelStatus('error', '❌ Save failed — check your token in CONFIG.');
-    }
-  } catch(e) {
-    setPanelStatus('error', '❌ Error: ' + e.message);
-  }
+  const ok1 = await ghSave('discussion.json', discussion, `Update discussion — ${ts}`);
+  if (!ok1) return; // ghSave already set the error message
+  const ok2 = await ghSave('overrides.json',  overrides,  `Update overrides — ${ts}`);
+  if (!ok2) return;
+
+  setPanelStatus('success', '✅ PUBLISHED! Live in ~30 seconds.');
+  setTimeout(() => setPanelStatus('', ''), 6000);
+  applyOverrides(overrides);
 }
 
 async function ghSave(path, content, message) {
-  // Get current SHA
+  // Get current SHA via git tree
   const getR = await fetch(`https://api.github.com/repos/${CONFIG.githubUser}/${CONFIG.githubRepo}/git/ref/heads/main`, {
     headers: { Authorization: `Bearer ${CONFIG.githubToken}`, Accept: 'application/vnd.github+json' }
   });
-  if (!getR.ok) return false;
+  if (!getR.ok) {
+    const e = await getR.json().catch(()=>({}));
+    console.error('ref failed:', getR.status, e.message);
+    setPanelStatus('error', `❌ Error ${getR.status}: ${e.message || 'Could not get ref'}`);
+    return false;
+  }
   const ref = await getR.json();
 
   const treeR = await fetch(`https://api.github.com/repos/${CONFIG.githubUser}/${CONFIG.githubRepo}/git/trees/${ref.object.sha}?recursive=1`, {
     headers: { Authorization: `Bearer ${CONFIG.githubToken}`, Accept: 'application/vnd.github+json' }
   });
-  if (!treeR.ok) return false;
+  if (!treeR.ok) {
+    const e = await treeR.json().catch(()=>({}));
+    console.error('tree failed:', treeR.status, e.message);
+    setPanelStatus('error', `❌ Error ${treeR.status}: ${e.message || 'Could not get tree'}`);
+    return false;
+  }
   const tree = await treeR.json();
   const file = tree.tree.find(f => f.path === path);
   const sha  = file?.sha || null;
+  console.log(`Saving ${path}, sha=${sha}`);
 
   const putR = await fetch(`https://api.github.com/repos/${CONFIG.githubUser}/${CONFIG.githubRepo}/contents/${path}`, {
     method: 'PUT',
@@ -938,7 +941,13 @@ async function ghSave(path, content, message) {
       ...(sha ? { sha } : {}),
     }),
   });
-  return putR.ok;
+  if (!putR.ok) {
+    const e = await putR.json().catch(()=>({}));
+    console.error(`PUT ${path} failed:`, putR.status, e.message);
+    setPanelStatus('error', `❌ Error ${putR.status}: ${e.message || 'PUT failed'}`);
+    return false;
+  }
+  return true;
 }
 
 function setPanelStatus(type, msg) {
@@ -1221,12 +1230,3 @@ function esc(str) {
 }
 
 // ─────────────────────────────────────────────
-// INIT
-// ─────────────────────────────────────────────
-loadOverrides();
-loadForecast();
-loadDiscussion();
-loadConditions();
-</script>
-</body>
-</html>
