@@ -355,207 +355,10 @@
     .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; }
     .footer-links a:hover { color: white; }
 
-    /* ── STAFF BUTTON ── */
-    .staff-btn {
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.15);
-      color: rgba(255,255,255,0.3);
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      padding: 5px 10px;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.2s;
-      align-self: flex-end;
-    }
-    .staff-btn:hover { border-color: rgba(255,255,255,0.4); color: rgba(255,255,255,0.6); }
-
-    /* ── PASSCODE MODAL ── */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.7);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-      backdrop-filter: blur(4px);
-    }
-    .modal-overlay.open { display: flex; }
-    .modal-box {
-      background: #1a2736;
-      border: 1px solid #2a3f55;
-      border-radius: 14px;
-      padding: 32px;
-      width: 320px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-      text-align: center;
-      animation: modalIn 0.2s ease;
-    }
-    @keyframes modalIn { from { opacity:0; transform:scale(0.92); } to { opacity:1; transform:scale(1); } }
-    .modal-logo { margin-bottom: 16px; }
-    .modal-logo img { width: 60px; height: 60px; border-radius: 50%; border: 2px solid #F5A800; }
-    .modal-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: #F5A800;
-      letter-spacing: 0.12em;
-      margin-bottom: 4px;
-    }
-    .modal-sub { font-size: 0.75rem; color: #7a9ab8; letter-spacing: 0.06em; margin-bottom: 22px; }
-    .modal-error {
-      color: #e74c3c;
-      font-size: 0.8rem;
-      font-family: 'Barlow Condensed', sans-serif;
-      letter-spacing: 0.06em;
-      height: 18px;
-    }
-    .modal-close-btn {
-      background: transparent;
-      border: none;
-      color: #7a9ab8;
-      font-size: 0.8rem;
-      cursor: pointer;
-      margin-top: 8px;
-      font-family: 'Barlow', sans-serif;
-    }
-
-    /* ── FORECASTER PANEL (slide-in drawer) ── */
-    .panel-drawer {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 999;
-      overflow-y: auto;
-      background: #0f1923;
-      animation: slideIn 0.25s ease;
-    }
-    .panel-drawer.open { display: block; }
-    @keyframes slideIn { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
-
-    .panel-topbar {
-      background: linear-gradient(135deg, #1a3a5c, #2a5a8c);
-      border-bottom: 3px solid #CC0000;
-      padding: 14px 24px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    .panel-topbar img { width: 44px; height: 44px; border-radius: 50%; border: 2px solid #F5A800; }
-    .panel-topbar-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: #F5A800;
-      letter-spacing: 0.1em;
-    }
-    .panel-topbar-sub { font-size: 0.75rem; color: rgba(255,255,255,0.5); }
-    .panel-topbar-actions { margin-left: auto; display: flex; gap: 10px; }
-    .panel-back-btn, .panel-save-btn {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      padding: 7px 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      border: none;
-    }
-    .panel-back-btn { background: rgba(255,255,255,0.1); color: white; }
-    .panel-back-btn:hover { background: rgba(255,255,255,0.2); }
-    .panel-save-btn { background: linear-gradient(135deg, #1a7a3a, #2ecc71); color: white; }
-    .panel-save-btn:hover { opacity: 0.88; }
-
-    .panel-content { max-width: 800px; margin: 0 auto; padding: 24px; display: flex; flex-direction: column; gap: 20px; }
-
-    .p-card { background: #1a2736; border: 1px solid #2a3f55; border-radius: 12px; overflow: hidden; }
-    .p-card-header {
-      background: linear-gradient(90deg, #8B0000, #CC0000);
-      padding: 11px 16px;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.88rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      color: white;
-    }
-    .p-card-body { padding: 18px; }
-
-    .p-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #7a9ab8; margin-bottom: 6px; display: block; }
-    .p-input, .p-textarea {
-      width: 100%;
-      background: #0f1923;
-      border: 1px solid #2a3f55;
-      border-radius: 7px;
-      padding: 9px 12px;
-      color: #e8f0f8;
-      font-family: 'Barlow', sans-serif;
-      font-size: 0.88rem;
-      outline: none;
-      margin-bottom: 14px;
-      transition: border-color 0.2s;
-    }
-    .p-input:focus, .p-textarea:focus { border-color: #2a5a8c; }
-    .p-textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
-
-    .toggle-row { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-    .toggle-label { font-size: 0.85rem; color: #7a9ab8; }
-    .p-toggle { position: relative; width: 42px; height: 23px; flex-shrink: 0; }
-    .p-toggle input { opacity:0; width:0; height:0; }
-    .p-toggle-slider {
-      position: absolute; inset: 0;
-      background: #2a3f55; border-radius: 23px; cursor: pointer; transition: background 0.2s;
-    }
-    .p-toggle-slider:before {
-      content:''; position:absolute; width:17px; height:17px;
-      left:3px; top:3px; background:white; border-radius:50%; transition:transform 0.2s;
-    }
-    .p-toggle input:checked + .p-toggle-slider { background: #2ecc71; }
-    .p-toggle input:checked + .p-toggle-slider:before { transform: translateX(19px); }
-
-    .disc-sec {
-      background: #243447; border: 1px solid #2a3f55; border-radius: 8px;
-      padding: 12px; margin-bottom: 10px;
-    }
-    .disc-sec-head { display: flex; gap: 8px; margin-bottom: 8px; align-items: center; }
-    .disc-sec-head input {
-      flex:1; background:#0f1923; border:1px solid #2a3f55; border-radius:6px;
-      padding:6px 10px; color:#e8f0f8; font-family:'Barlow Condensed',sans-serif;
-      font-size:0.88rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase;
-    }
-    .disc-del {
-      background:rgba(204,0,0,0.2); border:1px solid #CC0000; color:#CC0000;
-      width:28px; height:28px; border-radius:6px; cursor:pointer; font-size:1rem;
-      display:flex; align-items:center; justify-content:center; flex-shrink:0;
-    }
-    .disc-del:hover { background:rgba(204,0,0,0.4); }
-
-    .p-add-btn {
-      width:100%; padding:9px; background:transparent; border:1px dashed #2a3f55;
-      border-radius:7px; color:#7a9ab8; font-family:'Barlow Condensed',sans-serif;
-      font-size:0.85rem; font-weight:700; letter-spacing:0.08em; cursor:pointer;
-      margin-top:6px; transition: border-color 0.2s, color 0.2s;
-    }
-    .p-add-btn:hover { border-color:#2a5a8c; color:#e8f0f8; }
-
-    .p-save-status {
-      font-family:'Barlow Condensed',sans-serif; font-size:0.9rem; font-weight:700;
-      letter-spacing:0.08em; padding:10px 16px; border-radius:8px; text-align:center; display:none;
-    }
-    .p-save-status.saving { display:block; background:rgba(243,156,18,0.15); color:#f39c12; border:1px solid #f39c12; }
-    .p-save-status.success { display:block; background:rgba(46,204,113,0.15); color:#2ecc71; border:1px solid #2ecc71; }
-    .p-save-status.error   { display:block; background:rgba(231,76,60,0.15);  color:#e74c3c; border:1px solid #e74c3c; }
-
     @media (max-width: 768px) {
       .main { grid-template-columns: 1fr; }
       .header-text h1 { font-size: 2rem; }
       .header-meta { display: none; }
-      .panel-content { padding: 16px; }
     }
   </style>
 </head>
@@ -617,6 +420,7 @@
         </div>
       </div>
     </div>
+
     <div class="sidebar-block">
       <div class="section-title">🛰️ &nbsp;OKLAHOMA RADAR</div>
       <div class="sidebar-card">
@@ -653,323 +457,32 @@
       </a>
     </div>
     <div class="footer-links">
-      <a href="/cdn-cgi/l/email-protection#acd6c9c2dbd49b9e9c9aeccbc1cdc5c082cfc3c1">📧 <span class="__cf_email__" data-cfemail="ed9788839a95dadfdddbad8a808c8481c38e8280">[email&#160;protected]</span></a><br/>
+      <a href="/cdn-cgi/l/email-protection#aad0cfc4ddd29d989a9ceacdc7cbc3c684c9c5c7">📧 <span class="__cf_email__" data-cfemail="2359464d545b1411131563444e424a4f0d404c4e">[email&#160;protected]</span></a><br/>
       <a href="https://twitter.com/zenwx_official" target="_blank">🐦 @zenwx_official</a><br/>
       <a href="https://youtube.com/@ZenWX_Official" target="_blank">▶️ @ZenWX_Official</a>
     </div>
-    <button class="staff-btn" onclick="openPasscodeModal()" title="Staff Access">🔧</button>
   </div>
 </footer>
 
-<!-- ── PASSCODE MODAL ── -->
-<div class="modal-overlay" id="passcode-modal">
-  <div class="modal-box">
-    <div class="modal-logo">
-      <img src="logo.png" alt="RWS" onerror="this.style.display='none'" />
-    </div>
-    <div class="modal-title">STAFF ACCESS</div>
-    <div class="modal-sub">ENTER PASSWORD</div>
-    <div style="margin-bottom:16px;">
-      <input type="password" id="passcode-input" class="p-input" placeholder="Password"
-        style="text-align:center;font-size:1.1rem;letter-spacing:0.15em;margin-bottom:0;"
-        onkeydown="if(event.key==='Enter')checkPasscode()" autocomplete="current-password" />
-    </div>
-    <button onclick="checkPasscode()" style="width:100%;padding:11px;background:linear-gradient(135deg,#8B0000,#CC0000);border:none;border-radius:8px;color:white;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.1em;cursor:pointer;margin-bottom:10px;">SIGN IN</button>
-    <div class="modal-error" id="modal-error"></div>
-    <button class="modal-close-btn" onclick="closePasscodeModal()">Cancel</button>
-  </div>
-</div>
-
-<!-- ── FORECASTER PANEL ── -->
-<div class="panel-drawer" id="panel-drawer">
-  <div class="panel-topbar">
-    <img src="logo.png" alt="RWS" onerror="this.style.display='none'" />
-    <div>
-      <div class="panel-topbar-title">FORECASTER PANEL</div>
-      <div class="panel-topbar-sub">RWS OKLAHOMA — STAFF</div>
-    </div>
-    <div class="panel-topbar-actions">
-      <button class="panel-save-btn" onclick="panelSave()">💾 SAVE TO SITE</button>
-      <button class="panel-back-btn" onclick="closePanel()">✕ CLOSE</button>
-    </div>
-  </div>
-
-  <div class="panel-content">
-
-    <!-- ALERT BANNER -->
-    <div class="p-card">
-      <div class="p-card-header">🚨 &nbsp;ALERT BANNER</div>
-      <div class="p-card-body">
-        <div class="toggle-row">
-          <label class="p-toggle">
-            <input type="checkbox" id="p-alert-enabled" />
-            <span class="p-toggle-slider"></span>
-          </label>
-          <span class="toggle-label">Show alert banner on site</span>
-        </div>
-        <label class="p-label">Alert Text</label>
-        <input class="p-input" type="text" id="p-alert-text" placeholder="⚠ TORNADO WATCH IN EFFECT FOR WESTERN OKLAHOMA UNTIL 9 PM CDT" />
-      </div>
-    </div>
-
-    <!-- DISCUSSION -->
-    <div class="p-card">
-      <div class="p-card-header">🌩️ &nbsp;FORECASTERS DISCUSSION</div>
-      <div class="p-card-body">
-        <div id="p-disc-container"></div>
-        <button class="p-add-btn" onclick="panelAddSection()">+ ADD SECTION</button>
-      </div>
-    </div>
-
-    <!-- SAVE STATUS + BUTTON -->
-    <div id="p-save-status" class="p-save-status"></div>
-    <button class="panel-save-btn" style="width:100%;padding:14px;font-size:1rem;" onclick="panelSave()">💾 &nbsp;SAVE & PUBLISH TO SITE</button>
-    <p style="font-size:0.75rem;color:#4a6a8a;text-align:center;line-height:1.6;">
-      Changes save to <code style="background:#1a2736;padding:1px 5px;border-radius:3px;">discussion.json</code> in your repo and go live in ~30 seconds.
-    </p>
-
-  </div>
-</div>
-
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// ─────────────────────────────────────────────
-// CONFIG
-// ─────────────────────────────────────────────
 const CONFIG = {
   githubDiscussionUrl: "discussion.json",
-  nwsOffice: "Norman Oklahoma",
+  nwsOffice: "OUN",
   nwsGridX: 61,
   nwsGridY: 89,
   discordUrl: "https://discord.gg/t39rkQXm8",
-
-  // ← CHANGE THIS to your passcode
-  passcode: "Oklahoma",
-
-  // ← Your GitHub details for saving discussion.json
-  githubUser: "zenitsu132-dev",
-  githubRepo: "RWS-Oklahoma",
-  // ← Paste your GitHub classic token here (repo scope)
-  githubToken: "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",
 };
 
 document.getElementById('discord-link').href = CONFIG.discordUrl;
 
-// ─────────────────────────────────────────────
-// CLOCK
-// ─────────────────────────────────────────────
 function updateTime() {
+  const now = new Date();
   document.getElementById('current-time').textContent =
-    new Date().toLocaleString('en-US', { weekday:'short', month:'short', day:'numeric', hour:'2-digit', minute:'2-digit', timeZoneName:'short', timeZone:'America/Chicago' });
+    now.toLocaleString('en-US', { weekday:'short', month:'short', day:'numeric', hour:'2-digit', minute:'2-digit', timeZoneName:'short', timeZone:'America/Chicago' });
 }
 updateTime();
 setInterval(updateTime, 30000);
 
-// ─────────────────────────────────────────────
-// PASSCODE MODAL
-// ─────────────────────────────────────────────
-function openPasscodeModal() {
-  document.getElementById('passcode-input').value = '';
-  document.getElementById('modal-error').textContent = '';
-  document.getElementById('passcode-modal').classList.add('open');
-  setTimeout(() => document.getElementById('passcode-input').focus(), 100);
-}
-
-function closePasscodeModal() {
-  document.getElementById('passcode-modal').classList.remove('open');
-  document.getElementById('passcode-input').value = '';
-}
-
-function checkPasscode() {
-  const val = document.getElementById('passcode-input').value;
-  if (val === CONFIG.passcode) {
-    closePasscodeModal();
-    openPanel();
-  } else {
-    const input = document.getElementById('passcode-input');
-    input.style.borderColor = '#cc0000';
-    document.getElementById('modal-error').textContent = 'INCORRECT PASSWORD';
-    setTimeout(() => {
-      input.style.borderColor = '';
-      input.value = '';
-      document.getElementById('modal-error').textContent = '';
-    }, 900);
-  }
-}
-
-document.addEventListener('keydown', e => {
-  if (document.getElementById('passcode-modal').classList.contains('open') && e.key === 'Escape') closePasscodeModal();
-});
-
-// ─────────────────────────────────────────────
-// PANEL
-// ─────────────────────────────────────────────
-function openPanel() {
-  document.getElementById('panel-drawer').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  panelLoadDiscussion();
-}
-
-function closePanel() {
-  document.getElementById('panel-drawer').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-// ─────────────────────────────────────────────
-// PANEL — DISCUSSION SECTIONS
-// ─────────────────────────────────────────────
-let secCount = 0;
-
-function panelAddSection(label = '', text = '') {
-  secCount++;
-  const id = `p-sec-${secCount}`;
-  const div = document.createElement('div');
-  div.className = 'disc-sec';
-  div.id = id;
-  div.innerHTML = `
-    <div class="disc-sec-head">
-      <input type="text" value="${esc(label)}" placeholder="SECTION LABEL (e.g. SHORT TERM)" />
-      <button class="disc-del" onclick="document.getElementById('${id}').remove()">✕</button>
-    </div>
-    <textarea class="p-textarea" placeholder="Write your forecast discussion here...">${esc(text)}</textarea>
-  `;
-  document.getElementById('p-disc-container').appendChild(div);
-}
-
-async function panelLoadDiscussion() {
-  document.getElementById('p-disc-container').innerHTML = '';
-  try {
-    const r = await fetch(`https://api.github.com/repos/${CONFIG.githubUser}/${CONFIG.githubRepo}/contents/discussion.json`, {
-      headers: { Authorization: `Bearer ${CONFIG.githubToken}`, Accept: 'application/vnd.github+json' }
-    });
-    if (!r.ok) throw new Error();
-    const f = await r.json();
-    const data = JSON.parse(decodeURIComponent(escape(atob(f.content.replace(/\n/g,'')))));
-    (data.sections || []).forEach(s => panelAddSection(s.label, s.text));
-
-    // Load alert state too
-    try {
-      const or = await fetch(`https://api.github.com/repos/${CONFIG.githubUser}/${CONFIG.githubRepo}/contents/overrides.json`, {
-        headers: { Authorization: `Bearer ${CONFIG.githubToken}`, Accept: 'application/vnd.github+json' }
-      });
-      if (or.ok) {
-        const of2 = await or.json();
-        const ov = JSON.parse(decodeURIComponent(escape(atob(of2.content.replace(/\n/g,'')))));
-        document.getElementById('p-alert-enabled').checked = ov.alertBanner?.enabled || false;
-        document.getElementById('p-alert-text').value = ov.alertBanner?.text || '';
-      }
-    } catch(_) {}
-  } catch(_) {
-    panelAddSection('Short Term (Today through Tomorrow)', '');
-    panelAddSection('Long Term (Sunday onward)', '');
-  }
-}
-
-function collectPanelSections() {
-  const sections = [];
-  document.querySelectorAll('.disc-sec').forEach(el => {
-    const label = el.querySelector('input')?.value?.trim() || '';
-    const text  = el.querySelector('textarea')?.value?.trim() || '';
-    if (label || text) sections.push({ label, text });
-  });
-  return sections;
-}
-
-// ─────────────────────────────────────────────
-// PANEL — SAVE
-// ─────────────────────────────────────────────
-async function panelSave() {
-  const statusEl = document.getElementById('p-save-status');
-  setPanelStatus('saving', '⏳ SAVING...');
-
-  const discussion = { updated: new Date().toISOString(), sections: collectPanelSections() };
-  const overrides  = {
-    alertBanner: {
-      enabled: document.getElementById('p-alert-enabled').checked,
-      text:    document.getElementById('p-alert-text').value.trim(),
-    }
-  };
-
-  const ts = new Date().toLocaleString('en-US', { timeZone: 'America/Chicago' });
-
-  const ok1 = await ghSave('discussion.json', discussion, `Update discussion — ${ts}`);
-  if (!ok1) return; // ghSave already set the error message
-  const ok2 = await ghSave('overrides.json',  overrides,  `Update overrides — ${ts}`);
-  if (!ok2) return;
-
-  setPanelStatus('success', '✅ PUBLISHED! Live in ~30 seconds.');
-  setTimeout(() => setPanelStatus('', ''), 6000);
-  applyOverrides(overrides);
-}
-
-async function ghSave(path, content, message) {
-  // Get current SHA via git tree
-  const getR = await fetch(`https://api.github.com/repos/${CONFIG.githubUser}/${CONFIG.githubRepo}/git/ref/heads/main`, {
-    headers: { Authorization: `Bearer ${CONFIG.githubToken}`, Accept: 'application/vnd.github+json' }
-  });
-  if (!getR.ok) {
-    const e = await getR.json().catch(()=>({}));
-    console.error('ref failed:', getR.status, e.message);
-    setPanelStatus('error', `❌ Error ${getR.status}: ${e.message || 'Could not get ref'}`);
-    return false;
-  }
-  const ref = await getR.json();
-
-  const treeR = await fetch(`https://api.github.com/repos/${CONFIG.githubUser}/${CONFIG.githubRepo}/git/trees/${ref.object.sha}?recursive=1`, {
-    headers: { Authorization: `Bearer ${CONFIG.githubToken}`, Accept: 'application/vnd.github+json' }
-  });
-  if (!treeR.ok) {
-    const e = await treeR.json().catch(()=>({}));
-    console.error('tree failed:', treeR.status, e.message);
-    setPanelStatus('error', `❌ Error ${treeR.status}: ${e.message || 'Could not get tree'}`);
-    return false;
-  }
-  const tree = await treeR.json();
-  const file = tree.tree.find(f => f.path === path);
-  const sha  = file?.sha || null;
-  console.log(`Saving ${path}, sha=${sha}`);
-
-  const putR = await fetch(`https://api.github.com/repos/${CONFIG.githubUser}/${CONFIG.githubRepo}/contents/${path}`, {
-    method: 'PUT',
-    headers: {
-      Authorization: `Bearer ${CONFIG.githubToken}`,
-      Accept: 'application/vnd.github+json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      message,
-      content: btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2)))),
-      ...(sha ? { sha } : {}),
-    }),
-  });
-  if (!putR.ok) {
-    const e = await putR.json().catch(()=>({}));
-    console.error(`PUT ${path} failed:`, putR.status, e.message);
-    setPanelStatus('error', `❌ Error ${putR.status}: ${e.message || 'PUT failed'}`);
-    return false;
-  }
-  return true;
-}
-
-function setPanelStatus(type, msg) {
-  const el = document.getElementById('p-save-status');
-  el.className = `p-save-status ${type}`;
-  el.textContent = msg;
-  el.style.display = msg ? 'block' : 'none';
-}
-
-function applyOverrides(ov) {
-  const banner = document.getElementById('alert-banner');
-  if (ov.alertBanner?.enabled && ov.alertBanner?.text) {
-    banner.textContent = ov.alertBanner.text;
-    banner.style.display = 'block';
-  } else {
-    banner.style.display = 'none';
-  }
-}
-
-// ─────────────────────────────────────────────
-// NWS ICONS
-// ─────────────────────────────────────────────
 function nwsIconUrl(shortForecast) {
   const f = shortForecast.toLowerCase();
   if (f.includes('thunder')) return 'https://api.weather.gov/icons/land/day/tsra?size=medium';
@@ -984,9 +497,6 @@ function nwsIconUrl(shortForecast) {
   return 'https://api.weather.gov/icons/land/day/sct?size=medium';
 }
 
-// ─────────────────────────────────────────────
-// FORECAST
-// ─────────────────────────────────────────────
 async function loadForecast() {
   try {
     const res = await fetch(`https://api.weather.gov/gridpoints/${CONFIG.nwsOffice}/${CONFIG.nwsGridX},${CONFIG.nwsGridY}/forecast`, {
@@ -999,16 +509,17 @@ async function loadForecast() {
     checkAlerts();
   } catch (e) {
     document.getElementById('forecast-container').innerHTML =
-      '<div class="loading" style="color:#cc0000">⚠ Could not load forecast.</div>';
+      '<div class="loading" style="color:#cc0000">⚠ Could not load forecast. Check your NWS gridpoint config.</div>';
   }
 }
 
 function renderForecast(periods) {
   const container = document.getElementById('forecast-container');
-  const dayAbbr = { 'This Afternoon':'TODAY','Tonight':'TONIGHT','Today':'TODAY',
+  const dayAbbr = { 'This Afternoon':'TODAY', 'Tonight':'TONIGHT', 'Today':'TODAY',
     'Monday':'MON','Tuesday':'TUE','Wednesday':'WED','Thursday':'THU','Friday':'FRI','Saturday':'SAT','Sunday':'SUN',
     'Monday Night':'MON','Tuesday Night':'TUE','Wednesday Night':'WED','Thursday Night':'THU',
     'Friday Night':'FRI','Saturday Night':'SAT','Sunday Night':'SUN' };
+
   container.innerHTML = periods.map(p => {
     const abbr = dayAbbr[p.name] || p.name.toUpperCase().slice(0,3);
     const isNight = p.name.toLowerCase().includes('night') || p.name === 'Tonight';
@@ -1030,9 +541,6 @@ function renderForecast(periods) {
   }).join('');
 }
 
-// ─────────────────────────────────────────────
-// DISCUSSION
-// ─────────────────────────────────────────────
 async function loadDiscussion() {
   try {
     const res = await fetch(`https://api.weather.gov/products/types/AFD/locations/${CONFIG.nwsOffice}`, {
@@ -1048,6 +556,7 @@ async function loadDiscussion() {
     renderDiscussion(prod.productText, 'nws');
     return;
   } catch (_) {}
+
   try {
     const res = await fetch(CONFIG.githubDiscussionUrl);
     if (!res.ok) throw new Error();
@@ -1055,27 +564,33 @@ async function loadDiscussion() {
     renderDiscussion(null, 'github', data);
   } catch (_) {
     document.getElementById('discussion-container').innerHTML =
-      '<div class="loading" style="color:#666">No discussion available.</div>';
+      '<div class="loading" style="color:#666">No discussion available. Add a <code>discussion.json</code> to your repo as fallback.</div>';
   }
 }
 
 function renderDiscussion(rawText, source, githubData) {
   const container = document.getElementById('discussion-container');
+
   if (source === 'github' && githubData) {
-    container.innerHTML = (githubData.sections || []).map(s => `
+    const sections = githubData.sections || [];
+    container.innerHTML = sections.map(s => `
       <div class="discussion-section">
         <div class="disc-label">${s.label}</div>
         <p>${s.text}</p>
-      </div>`).join('') + `<p style="font-size:0.75rem;color:#aaa;margin-top:12px;">Source: Custom discussion</p>`;
+      </div>`).join('') + `<p style="font-size:0.75rem;color:#aaa;margin-top:12px;">Source: Custom discussion (GitHub)</p>`;
     return;
   }
+
   if (rawText) {
     let text = rawText.replace(/^[\s\S]*?&&\s*/m, '').replace(/&&[\s\S]*$/m, '');
     let parts = text.split(/\.([A-Z][A-Z /]+)\.\.\./g);
     const parsed = [];
-    for (let i = 1; i < parts.length; i += 2)
+    for (let i = 1; i < parts.length; i += 2) {
       parsed.push({ label: parts[i].trim(), text: parts[i+1]?.trim().replace(/\n+/g,' ').slice(0,800) || '' });
-    if (!parsed.length) parsed.push({ label: 'FORECAST DISCUSSION', text: text.replace(/\n+/g,' ').slice(0,1200) });
+    }
+    if (parsed.length === 0) {
+      parsed.push({ label: 'FORECAST DISCUSSION', text: text.replace(/\n+/g,' ').slice(0,1200) });
+    }
     container.innerHTML = parsed.map(s => `
       <div class="discussion-section">
         <div class="disc-label">${s.label}</div>
@@ -1084,23 +599,24 @@ function renderDiscussion(rawText, source, githubData) {
   }
 }
 
-// ─────────────────────────────────────────────
-// CONDITIONS
-// ─────────────────────────────────────────────
 async function loadConditions() {
   const station = document.getElementById('station-select').value;
-  ['c-temp','c-dew','c-wind','c-humid','c-pres','c-vis'].forEach(id => document.getElementById(id).textContent = '…');
+  const ids = ['c-temp','c-dew','c-wind','c-humid','c-pres','c-vis'];
+  ids.forEach(id => document.getElementById(id).textContent = '…');
   document.getElementById('c-sky').textContent = '';
+
   try {
     const res = await fetch(`https://api.weather.gov/stations/${station}/observations/latest`, {
       headers: { 'User-Agent': 'OklahomaRWS/1.0 (zenwx7206@gmail.com)' }
     });
     if (!res.ok) throw new Error();
     const obs = (await res.json()).properties;
-    const toF   = c   => c   != null ? Math.round(c * 9/5 + 32) + '°F' : '--';
+
+    const toF  = c   => c   != null ? Math.round(c * 9/5 + 32) + '°F' : '--';
     const toMph = mps => mps != null ? Math.round(mps * 2.237) + ' mph' : '--';
     const toMb  = pa  => pa  != null ? (pa / 100).toFixed(0) + ' mb'   : '--';
     const toMi  = m   => m   != null ? (m / 1609.34).toFixed(1) + ' mi': '--';
+
     document.getElementById('c-temp').textContent  = toF(obs.temperature?.value);
     document.getElementById('c-dew').textContent   = toF(obs.dewpoint?.value);
     const windDir = obs.windDirection?.value != null ? degToDir(obs.windDirection.value) + ' ' : '';
@@ -1110,18 +626,16 @@ async function loadConditions() {
     document.getElementById('c-vis').textContent   = toMi(obs.visibility?.value);
     document.getElementById('c-sky').textContent   = obs.textDescription || '';
   } catch (_) {
-    ['c-temp','c-dew','c-wind','c-humid','c-pres','c-vis'].forEach(id => document.getElementById(id).textContent = '--');
+    ids.forEach(id => document.getElementById(id).textContent = '--');
     document.getElementById('c-sky').textContent = 'Conditions unavailable';
   }
 }
 
 function degToDir(deg) {
-  return ['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'][Math.round(deg / 22.5) % 16];
+  const dirs = ['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'];
+  return dirs[Math.round(deg / 22.5) % 16];
 }
 
-// ─────────────────────────────────────────────
-// ALERTS
-// ─────────────────────────────────────────────
 async function checkAlerts() {
   try {
     const res = await fetch('https://api.weather.gov/alerts/active?area=OK', {
@@ -1130,28 +644,17 @@ async function checkAlerts() {
     if (!res.ok) return;
     const data = await res.json();
     const active = data.features?.filter(f => f.properties.severity === 'Extreme' || f.properties.severity === 'Severe');
-    if (active?.length) {
+    if (active && active.length > 0) {
       const banner = document.getElementById('alert-banner');
-      if (banner.style.display !== 'block') { // don't override manual alert
-        banner.textContent = `⚠ ${active.length} ACTIVE WEATHER ALERT${active.length > 1 ? 'S' : ''} FOR OKLAHOMA — ${active[0].properties.headline}`;
-        banner.style.display = 'block';
-      }
+      banner.style.display = 'block';
+      banner.textContent = `⚠ ${active.length} ACTIVE WEATHER ALERT${active.length > 1 ? 'S' : ''} FOR OKLAHOMA — ${active[0].properties.headline}`;
     }
   } catch (_) {}
 }
 
-// Load overrides.json for alert banner on page load
-async function loadOverrides() {
-  try {
-    const res = await fetch('overrides.json?_=' + Date.now());
-    if (!res.ok) return;
-    const ov = await res.json();
-    applyOverrides(ov);
-  } catch(_) {}
-}
-
 // ─────────────────────────────────────────────
-// RADAR — RainViewer + Leaflet
+// RADAR — RainViewer API + Leaflet
+// Animated radar centered on Oklahoma
 // ─────────────────────────────────────────────
 const radarScript = document.createElement('script');
 radarScript.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
@@ -1159,36 +662,60 @@ radarScript.onload = initRadar;
 document.head.appendChild(radarScript);
 
 let radarMap, radarFrames = [], radarLayers = [], currentFrame = 0;
-let radarColorScheme = 2, animTimer = null, isPlaying = false;
+let radarColorScheme = 2; // 2=original, 6=NEXRAD, 1=universal blue
+let animTimer = null, isPlaying = false;
 
 function initRadar() {
-  radarMap = L.map('radar-map', { center:[35.5,-97.5], zoom:6, zoomControl:true, attributionControl:false, scrollWheelZoom:false });
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { maxZoom:10 }).addTo(radarMap);
+  radarMap = L.map('radar-map', {
+    center: [35.5, -97.5],
+    zoom: 6,
+    zoomControl: true,
+    attributionControl: false,
+    scrollWheelZoom: false,
+  });
+
+  // Dark basemap
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    maxZoom: 10,
+  }).addTo(radarMap);
+
+  // Oklahoma state border highlight (GeoJSON from NWS)
   fetch('https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/USA_States_Generalized/FeatureServer/0/query?where=STATE_ABBR%3D%27OK%27&outFields=*&f=geojson')
-    .then(r => r.ok ? r.json() : null).then(data => {
-      if (data) L.geoJSON(data, { style:{ color:'#F5A800', weight:1.5, fill:false, opacity:0.6 } }).addTo(radarMap);
-    }).catch(()=>{});
+    .then(r => r.ok ? r.json() : null)
+    .then(data => {
+      if (data) L.geoJSON(data, { style: { color: '#F5A800', weight: 1.5, fill: false, opacity: 0.6 } }).addTo(radarMap);
+    }).catch(() => {});
+
   loadRainViewerFrames();
 }
 
 async function loadRainViewerFrames() {
   try {
-    const res  = await fetch('https://api.rainviewer.com/public/weather-maps.json');
+    const res = await fetch('https://api.rainviewer.com/public/weather-maps.json');
     const data = await res.json();
     const host = data.host;
     radarFrames = data.radar.past;
+
+    // Pre-create all layers (hidden)
     radarLayers.forEach(l => radarMap.removeLayer(l));
     radarLayers = radarFrames.map(frame =>
-      L.tileLayer(`${host}${frame.path}/512/{z}/{x}/{y}/${radarColorScheme}/1_1.png`, { opacity:0, maxZoom:10 })
+      L.tileLayer(`${host}${frame.path}/512/{z}/{x}/{y}/${radarColorScheme}/1_1.png`, {
+        opacity: 0,
+        maxZoom: 10,
+      })
     );
     radarLayers.forEach(l => l.addTo(radarMap));
+
+    // Show latest frame
     currentFrame = radarFrames.length - 1;
     showFrame(currentFrame);
-  } catch(e) { document.getElementById('radar-timestamp').textContent = 'Unavailable'; }
+  } catch(e) {
+    document.getElementById('radar-timestamp').textContent = 'Unavailable';
+  }
 }
 
 function showFrame(idx) {
-  radarLayers.forEach((l,i) => l.setOpacity(i === idx ? 0.7 : 0));
+  radarLayers.forEach((l, i) => l.setOpacity(i === idx ? 0.7 : 0));
   const t = new Date(radarFrames[idx].time * 1000);
   document.getElementById('radar-timestamp').textContent =
     t.toLocaleTimeString('en-US', { hour:'2-digit', minute:'2-digit', timeZone:'America/Chicago' }) + ' CDT';
@@ -1198,6 +725,7 @@ function stepFrame() {
   currentFrame = (currentFrame + 1) % radarFrames.length;
   showFrame(currentFrame);
   if (currentFrame === radarFrames.length - 1) {
+    // Pause briefly at latest frame then restart
     clearInterval(animTimer);
     setTimeout(() => { if (isPlaying) animTimer = setInterval(stepFrame, 600); }, 1200);
   }
@@ -1208,9 +736,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!radarFrames.length) return;
     isPlaying = !isPlaying;
     document.getElementById('radar-play-btn').textContent = isPlaying ? '⏹ STOP' : '▶ PLAY';
-    if (isPlaying) { currentFrame = 0; animTimer = setInterval(stepFrame, 600); }
-    else { clearInterval(animTimer); currentFrame = radarFrames.length - 1; showFrame(currentFrame); }
+    if (isPlaying) {
+      currentFrame = 0;
+      animTimer = setInterval(stepFrame, 600);
+    } else {
+      clearInterval(animTimer);
+      currentFrame = radarFrames.length - 1;
+      showFrame(currentFrame);
+    }
   });
+
   document.querySelectorAll('.rtab').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.rtab').forEach(b => b.classList.remove('active'));
@@ -1220,13 +755,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// Refresh frames every 10 min
 setInterval(loadRainViewerFrames, 10 * 60 * 1000);
 
-// ─────────────────────────────────────────────
-// UTILS
-// ─────────────────────────────────────────────
-function esc(str) {
-  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
 
 // ─────────────────────────────────────────────
+// INIT
+// ─────────────────────────────────────────────
+loadForecast();
+loadDiscussion();
+loadConditions();
+</script>
+
+</body>
+</html>
